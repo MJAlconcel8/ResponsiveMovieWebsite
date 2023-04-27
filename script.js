@@ -1,3 +1,8 @@
+
+const APIKEY = 'api_key=aadab7b55997e452fe229067e700adf9';
+const BASEURL = 'https://api.themoviedb.org/3/';
+const APIURL = BASEURL + '/discover/movie?sort_by-popularity.desc'+APIKEY;
+
 function showMovies(data){
     data.forEach(movie =>{
         const{title, poster_path, vote_average, overview} = movie;
@@ -16,5 +21,16 @@ function showMovies(data){
     });
 }
 
+function getColor(vote){
+    if(vote>=0){
+        return 'green';
+    }
+    else if(vote>=5){
+        return 'orange';
+    }
+    else{
+        return 'red';
+    }
+}
 
 
